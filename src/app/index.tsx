@@ -13,8 +13,10 @@ import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import { GlobalStyle } from '../styles/global-styles';
 
 import { HomePage } from './pages/HomePage/Loadable';
+import { NewHomePage } from './pages/NewHomePage/Loadable';
 import { NotFoundPage } from './pages/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
+import 'antd/dist/antd.css';
 
 export function App() {
   const { i18n } = useTranslation();
@@ -29,7 +31,8 @@ export function App() {
       </Helmet>
 
       <Switch>
-        <Route exact path={process.env.PUBLIC_URL + '/'} component={HomePage} />
+        <Route exact path={process.env.PUBLIC_URL + '/oldhome'} component={HomePage} />
+        <Route exact path={process.env.PUBLIC_URL + '/'} component={NewHomePage} />
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />
